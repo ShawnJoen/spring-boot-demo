@@ -10,7 +10,6 @@ import java.util.List;
 
 /*lombok
 * @Slf4j 内置日志门面 可以直接通过变量log使用
-*
 * */
 @Slf4j
 @Controller
@@ -49,7 +48,7 @@ public class HelloController {
 
     @RequestMapping(value = "api/deleteCity/{id}", method = RequestMethod.GET)
     public void deleteCity(@PathVariable("id") Long id) {
-        log.info("-------------updateCity: {}", cityService.deleteCity(id));
+        log.info("-------------deleteCity: {}", cityService.deleteCity(id));
     }
 
 }

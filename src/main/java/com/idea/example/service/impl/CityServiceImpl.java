@@ -27,8 +27,9 @@ public class CityServiceImpl implements CityService {
         if (hasKey) {
             //从缓存
             City city = operations.get(key);
-            log.info("-------------缓存中获取了指定城市: {}", city.toString());
-
+            if (city != null) {
+                log.info("-------------缓存中获取了指定城市: {}", city.toString());
+            }
             return city;
         }
         //从DB
@@ -38,7 +39,6 @@ public class CityServiceImpl implements CityService {
         if (city != null) {
             log.info("-------------DB中获取了指定城市: {}", city.toString());
         }
-
         return city;
     }
 
@@ -81,5 +81,6 @@ public class CityServiceImpl implements CityService {
 
         return result;
     }
+
 
 }

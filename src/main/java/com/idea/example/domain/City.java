@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /*lombok
-* @Data 包含Setter,Getter
+* @Data 包含Setter,Getter 等等
 *
 * */
 @Data
