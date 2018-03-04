@@ -7,7 +7,7 @@
     <meta name="Keywords" content="">
     <meta name="Description" content="">
     <title>Document</title>
-    <link href="/styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="/static/styles/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <strong class="red-color">Test Page</strong>
