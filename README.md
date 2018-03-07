@@ -11,5 +11,5 @@ Spring Boot Intellij Idea Gradle Demo Project
 &nbsp;&nbsp;发布/订阅 转发器类型[Topic] &nbsp;:&nbsp;/mq/rabbit/sendMessageUsingTopicNo1Exchange<br><br>
 &nbsp;&nbsp;发布/订阅 转发器类型[Topic] &nbsp;:&nbsp;/mq/rabbit/sendMessageUsingTopicStartExchange
 # SockJS
-&nbsp;&nbsp;通过@SendTo发布消息&nbsp;:&nbsp;/socket/pingPong
+&nbsp;&nbsp;通过@SendTo发布消息&nbsp;:&nbsp;/socket/pingPong<br><br>
 &nbsp;&nbsp;通过SimpMessagingTemplate发布消息&nbsp;:&nbsp;/socket/simpleChat
