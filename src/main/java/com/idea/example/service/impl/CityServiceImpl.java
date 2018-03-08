@@ -1,6 +1,6 @@
 package com.idea.example.service.impl;
 
-import com.idea.example.dao.CityDao;
+import com.idea.example.repository.dao.CityDao;
 import com.idea.example.domain.City;
 import com.idea.example.service.CityService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +20,7 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Override
     public City findCityById(Long id) {
         String key = "city_" + id;
         ValueOperations<String, City> operations = redisTemplate.opsForValue();
@@ -43,18 +44,23 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City findByCityName(String cityName) {
+        return cityDao.findByCityName(cityName);
+    }
+
+    @Override
     public List<City> findAllCity() {
         return cityDao.findAllCity();
     }
 
     @Override
-    public Long saveCity(City city) {
+    public int saveCity(City city) {
         return cityDao.saveCity(city);
     }
 
     @Override
-    public Long updateCity(City city) {
-        Long result = cityDao.updateCity(city);
+    public int updateCity(City city) {
+        int result = cityDao.updateCity(city);
         //删除指定缓存
         String key = "city_" + city.getId();
         boolean hasKey = redisTemplate.hasKey(key);
@@ -68,8 +74,8 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public Long deleteCity(Long id) {
-        Long result = cityDao.deleteCity(id);
+    public int deleteCity(Long id) {
+        int result = cityDao.deleteCity(id);
         //删除指定缓存
         String key = "city_" + id;
         boolean hasKey = redisTemplate.hasKey(key);
@@ -81,6 +87,5 @@ public class CityServiceImpl implements CityService {
 
         return result;
     }
-
 
 }

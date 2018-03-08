@@ -30,6 +30,12 @@ public class HelloController {
         return cityService.findCityById(id);
     }
 
+    @RequestMapping(value = "api/findByCityName", method = RequestMethod.GET)
+    public @ResponseBody
+    City findByCityName(@RequestParam(value = "cityName", required = true) String cityName) {
+        return cityService.findByCityName(cityName);
+    }
+
     @RequestMapping(value = "api/findAllCity", method = RequestMethod.GET)
     public @ResponseBody
     List<City> findAllCity() {

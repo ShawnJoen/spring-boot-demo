@@ -7,11 +7,13 @@ public interface CityService {
 
     City findCityById(Long id);
 
+    City findByCityName(String cityName);
+
     List<City> findAllCity();
 
-    Long saveCity(City city);
+    int saveCity(City city);
 
-    Long updateCity(City city);
+    int updateCity(City city);
 
-    Long deleteCity(Long id);
+    int deleteCity(Long id);
 }
