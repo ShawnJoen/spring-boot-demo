@@ -1,4 +1,4 @@
-package com.idea.example;
+package com.idea.example.controller;
 
 import com.idea.example.mq.RabbitMqSender;
 import lombok.extern.slf4j.Slf4j;

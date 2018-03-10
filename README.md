@@ -15,5 +15,19 @@ Spring Boot Intellij Idea Gradle Demo Project
 &nbsp;&nbsp;通过@SendTo发布消息&nbsp;:&nbsp;/socket/pingPong<br><br>
 &nbsp;&nbsp;通过SimpMessagingTemplate发布消息&nbsp;:&nbsp;/socket/simpleChat
 # CrudRepository
-&nbsp;&nbsp;·&nbsp;:&nbsp;/cache/crud/getCityById?id=城市编号<br><br>
-&nbsp;&nbsp;·&nbsp;:&nbsp;/cache/crud/getCityByCityName?cityName=城市名称
+&nbsp;&nbsp;·&nbsp;&nbsp;/cache/crud/getCityById?id=城市编号<br><br>
+&nbsp;&nbsp;·&nbsp;&nbsp;/cache/crud/getCityByCityName?cityName=城市名称
+# Redisson
+&nbsp;&nbsp;获取所有的Keys&nbsp;:&nbsp;/redisson/RKeys<br><br>
+&nbsp;&nbsp;存取任何类型的对象&nbsp;:&nbsp;/redisson/RBucket<br><br>
+&nbsp;&nbsp;存取Map对象&nbsp;:&nbsp;/redisson/RMap<br><br>
+&nbsp;&nbsp;存取有序集合&nbsp;:&nbsp;/redisson/RSortedSet<br><br>
+&nbsp;&nbsp;存取集合&nbsp;:&nbsp;/redisson/RSet<br><br>
+&nbsp;&nbsp;存取列表&nbsp;:&nbsp;/redisson/RList<br><br>
+&nbsp;&nbsp;存取队列&nbsp;:&nbsp;/redisson/RQueue<br><br>
+&nbsp;&nbsp;存取双端队列&nbsp;:&nbsp;/redisson/RDeque<br><br>
+&nbsp;&nbsp;加解锁&nbsp;:&nbsp;/redisson/RLock<br><br>
+&nbsp;&nbsp;存取原子数&nbsp;:&nbsp;/redisson/RAtomicLong<br><br>
+&nbsp;&nbsp;获取记数锁&nbsp;:&nbsp;/redisson/RCountDownLatch<br><br>
+&nbsp;&nbsp;挂载Topic订阅者&nbsp;:&nbsp;/redisson/RTopicSubscribe<br><br>
+&nbsp;&nbsp;发布者Topic发布消息&nbsp;:&nbsp;/redisson/RTopicPublish

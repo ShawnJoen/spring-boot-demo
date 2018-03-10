@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.index.Indexed;
 
 @Data
-@RedisHash(value = "cityValue", timeToLive=3l) //数据是存储在Redis-Hash中
+@RedisHash(value = "cityValue", timeToLive=3L) //数据是存储在Redis-Hash中,timeToLive秒单位存储保留时间
 public class CityValue {
     @Id
     private String id;

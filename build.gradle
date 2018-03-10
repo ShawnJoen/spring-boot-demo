@@ -28,6 +28,8 @@ configurations {
 }
 
 dependencies {
+	//Redis分布式客户端
+	compile('org.redisson:redisson:3.6.1')
 	//Sentry 通过统一的接口收集、并且提供跟踪、管理(主要是错误日志)
 	compile('com.getsentry.raven:raven-logback:8.0.3')
 	compile('org.springframework.boot:spring-boot-starter-logging:1.5.10.RELEASE')

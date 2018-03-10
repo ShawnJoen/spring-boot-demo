@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class CityValueService {
-
+    //CrudRepository的实现 操作Redis像关系型数据库一样
     private final CityValueRepository cityValueRepository;
 
     @Autowired

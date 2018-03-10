@@ -1,5 +1,6 @@
-package com.idea.example.socket;
+package com.idea.example.config;
 
+import com.idea.example.socket.WSHandShakeHandler;
 import com.idea.example.socket.login.STOMPConnectEventListener;
 import com.idea.example.socket.login.SocketSessionRegistry;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,6 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 /**
  * 配置WebSocket
  */
-
 @Configuration//定义配置类，可替换xml配置文件
 @EnableWebSocketMessageBroker//这时候控制器（controller）开始支持@MessageMapping,就像是使用@requestMapping一样。
                             //开启使用STOMP协议来传输基于代理（Message Broker）的消息
@@ -50,4 +50,5 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     public STOMPConnectEventListener STOMPConnectEventListener() {//STOMP监听类(Chat)
         return new STOMPConnectEventListener();
     }
+
 }

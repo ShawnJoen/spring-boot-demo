@@ -1,4 +1,4 @@
-package com.idea.example;
+package com.idea.example.controller;
 
 import com.idea.example.domain.City;
 import com.idea.example.service.cache.CityValueService;
