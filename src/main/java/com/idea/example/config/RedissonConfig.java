@@ -1,5 +1,6 @@
 package com.idea.example.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /*
 * Redis分布式客户端Redisson的环境配置
 * */
+@Slf4j
 @Configuration
 @EnableCaching
 public class RedissonConfig {
@@ -29,9 +31,12 @@ public class RedissonConfig {
 
     @Bean
     public RedissonClient redissonClient() {
+
+        log.info("-------------redissonClient: {}", REDIS_HOST + ":" + REDIS_PORT);
+
         Config config = new Config();
             config.useSingleServer()
-                .setAddress(REDIS_HOST + ":" + REDIS_PORT)
+                .setAddress("redis://" + REDIS_HOST + ":" + REDIS_PORT)
                 //.setPassword(REDIS_PASSWORD)
                 .setDatabase(REDIS_DATABASE)
                 .setConnectionMinimumIdleSize(5)

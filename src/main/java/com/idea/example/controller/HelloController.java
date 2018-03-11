@@ -1,6 +1,6 @@
 package com.idea.example.controller;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import com.idea.example.service.CityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

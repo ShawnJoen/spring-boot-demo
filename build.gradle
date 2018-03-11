@@ -17,7 +17,9 @@ apply plugin: 'war'
 
 group = 'com.idea.example'
 version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -41,6 +43,14 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	//Redis(Nosql)
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	//Feign
+	compile('org.springframework.cloud:spring-cloud-starter-feign:1.4.3.RELEASE')
+	compile('com.netflix.feign:feign-httpclient:8.18.0')
+	compile('com.netflix.feign:feign-slf4j:8.18.0')
+	compile('com.netflix.feign:feign-gson:8.18.0')
+	//Gson
+	compile('com.google.code.gson:gson:2.8.2')
+
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-validation')
 	compile('org.springframework.boot:spring-boot-starter-web')

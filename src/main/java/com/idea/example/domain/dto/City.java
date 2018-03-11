@@ -1,4 +1,4 @@
-package com.idea.example.domain;
+package com.idea.example.domain.dto;
 
 import lombok.Data;
 import javax.persistence.*;

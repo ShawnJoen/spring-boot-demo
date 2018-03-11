@@ -1,7 +1,7 @@
 package com.idea.example.service.impl;
 
 import com.idea.example.repository.dao.CityDao;
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import com.idea.example.service.CityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

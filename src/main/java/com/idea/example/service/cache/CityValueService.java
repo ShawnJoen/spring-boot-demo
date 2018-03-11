@@ -1,6 +1,6 @@
 package com.idea.example.service.cache;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import com.idea.example.domain.cache.CityValue;
 import com.idea.example.repository.cache.CityValueRepository;
 import com.idea.example.service.CityService;

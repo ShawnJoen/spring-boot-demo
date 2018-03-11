@@ -1,6 +1,6 @@
 package com.idea.example.repository.dao;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
 

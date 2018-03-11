@@ -1,6 +1,6 @@
 package com.idea.example.domain.cache;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.annotation.Id;

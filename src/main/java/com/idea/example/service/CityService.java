@@ -1,6 +1,6 @@
 package com.idea.example.service;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import java.util.List;
 
 public interface CityService {

@@ -1,6 +1,6 @@
 package com.idea.example.repository.dao.impl;
 
-import com.idea.example.domain.City;
+import com.idea.example.domain.dto.City;
 import com.idea.example.repository.dao.BaseDaoImpl;
 import com.idea.example.repository.dao.CityDao;
 import org.springframework.stereotype.Repository;
