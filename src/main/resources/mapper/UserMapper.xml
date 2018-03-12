@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.idea.example.repository.dao.UserDao">
+
+    <resultMap id="BaseResultMap" 	type="com.idea.example.domain.dto.User">
+        <result column="id" 		property="id" />
+        <result column="email"      property="email" />
+        <result column="pw" 	    property="pw" />
+        <result column="otp_hash"   property="otpHash" />
+        <result column="active"     property="active" />
+        <result column="role"       property="role" />
+        <result column="reg_date"   property="regDate" />
+    </resultMap>
+
+    <parameterMap id="User" type="com.idea.example.domain.dto.User"/>
+
+    <sql id="Base_Column_List">
+        id, email, pw, otp_hash, active, role, reg_date
+    </sql>
+
+    <sql id="table"> t_user </sql>
+
+    <select id="findUserByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM
+        <include refid="table" />
+        WHERE
+        email = #{email}
+    </select>
+
+    <insert id="saveUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        <include refid="table" />
+        (email, pw, otp_hash, active, role, reg_date)
+        VALUES
+        (#{email},#{pw},#{otpHash},#{active},#{role},#{regDate})
+    </insert>
+
+    <parameterMap id="FingerPrint" type="com.idea.example.domain.dto.FingerPrint"/>
+
+    <insert id="saveFingerPrint" parameterMap="FingerPrint" useGeneratedKeys="true" keyProperty="user_id">
+        INSERT INTO
+        t_finger_print
+        (user_id, hash_key)
+        VALUES
+        (#{userId},#{hashKey})
+    </insert>
+
+</mapper>

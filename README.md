@@ -32,5 +32,5 @@ Spring Boot Intellij Idea Gradle Demo Project
 &nbsp;&nbsp;挂载Topic订阅者&nbsp;:&nbsp;/redisson/RTopicSubscribe<br><br>
 &nbsp;&nbsp;发布者Topic发布消息&nbsp;:&nbsp;/redisson/RTopicPublish
 # FeignClient
-&nbsp;&nbsp;通过FeignClient获取数据&nbsp;:&nbsp;/feign/github
+&nbsp;&nbsp;通过FeignClient获取数据&nbsp;:&nbsp;/feign/github<br><br>
 &nbsp;&nbsp;通过FeignClient获取指定数据&nbsp;:&nbsp;/feign/github/jack

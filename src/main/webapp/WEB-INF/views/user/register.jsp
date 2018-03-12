@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%><!DOCTYPE html><html lang="zh-CN"><head><title>SpringBoot WebSocket</title><meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<script src="/static/js/sockjs.min.js"></script>
+<script src="/static/js/stomp.min.js"></script>
+<script src="/static/js/jquery-1.12.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js"></script>
+</head>
+<body>
+
+<b>register</b>
+
+<form action="/user/doRegister" method="post">
+    <input type="hidden" name="fingerprint" id="fingerprint" required>
+    <input type="type" name="email" id="email"/><br>
+    <input type="type" name="pw" id="pw"/><br>
+    <input type="submit" value="신청하기"/>
+</form>
+<script>
+$(function() {
+    //浏览器指纹
+    $("#fingerprint").val(new ClientJS().getFingerprint());
+});
+
+</script>
+</body>
+</html>
