@@ -1,7 +1,7 @@
 package com.idea.example.controller;
 
-import com.idea.example.domain.dto.CoinMarketCapDTO;
-import com.idea.example.provider.feign.CoinMarketCapProvider;
+import com.idea.example.domain.dto.GithubDTO;
+import com.idea.example.provider.feign.GithubProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,19 +12,29 @@ import java.util.List;
 @RequestMapping("/feign/")
 public class FeignController {
 
-    private final CoinMarketCapProvider coinMarketCapProvider;
+    private final GithubProvider githubProvider;
 
     @Autowired
-    public FeignController(CoinMarketCapProvider coinMarketCapProvider) {
-        this.coinMarketCapProvider = coinMarketCapProvider;
+    public FeignController(GithubProvider githubProvider) {
+        this.githubProvider = githubProvider;
     }
-    @GetMapping("ticker")
+//http://127.0.0.1:8080/feign/github
+    @GetMapping("github")
     public @ResponseBody
-    List<CoinMarketCapDTO.Ticker> ticker() {
+    GithubDTO.ApiData ticker() {
 
-        log.info("-------------ticker");
+        log.info("-------------github");
 
-        return coinMarketCapProvider.ticker();
+        return githubProvider.github();
+    }
+//http://127.0.0.1:8080/feign/github/jack
+    @RequestMapping(value = "github/{q}", method = RequestMethod.GET)
+    public @ResponseBody
+    GithubDTO.ApiData ticker2(@PathVariable("q") String q) {
+
+        log.info("-------------github:" + q);
+
+        return githubProvider.githubq(q);
     }
 
 }

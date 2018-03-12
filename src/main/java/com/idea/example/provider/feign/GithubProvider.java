@@ -1,13 +1,13 @@
 package com.idea.example.provider.feign;
 
 import com.idea.example.config.FeignConfig;
-import com.idea.example.domain.dto.CoinMarketCapDTO;
+import com.idea.example.domain.dto.GithubDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import java.util.List;
 
 /*
 * @FeignClient参数说明
@@ -19,28 +19,34 @@ import java.util.List;
 * fallbackFactory: 工厂类，用于生成fallback类示例，通过这个属性我们可以实现每个接口通用的容错逻辑，减少重复的代码
 * path: 定义当前FeignClient的统一前缀
 * */
-@FeignClient(name = "coinMarketCapProvider",
-        url = "https://api.coinmarketcap.com",
+@FeignClient(name = "githubProvider",
+        url = "https://api.github.com",
         configuration = FeignConfig.class,
         decode404 = true,
-        fallback = CoinMarketCapProvider.DefaultFallback.class
+        fallback = GithubProvider.DefaultFallback.class
 )
-public interface CoinMarketCapProvider {
+public interface GithubProvider {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/v1/ticker/?convert=USDT&limit=3")
-    List<CoinMarketCapDTO.Ticker> ticker();
+    @RequestMapping(method = RequestMethod.GET, value = "/search/repositories?q=shawn")
+    GithubDTO.ApiData github();
+
+    @RequestMapping(method = RequestMethod.GET, value = "/search/repositories?q={q}")
+    GithubDTO.ApiData githubq(@PathVariable("q") String q);
 
     /**
      * 容错处理类，当调用失败时，简单返回空字符串
      */
     @Slf4j
     @Component
-    class DefaultFallback implements CoinMarketCapProvider {
+    class DefaultFallback implements GithubProvider {
         @Override
-        public List<CoinMarketCapDTO.Ticker> ticker() {
-
+        public GithubDTO.ApiData github() {
             log.info("-------------DefaultFallback 容错处理");
-
+            return null;
+        }
+        @Override
+        public GithubDTO.ApiData githubq(@PathVariable("q") String q) {
+            log.info("-------------DefaultFallback 容错处理", q);
             return null;
         }
     }
