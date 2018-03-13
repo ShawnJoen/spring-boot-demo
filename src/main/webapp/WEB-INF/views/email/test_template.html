@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
     <title>Test Email</title>
 <body>
-<a href="${confirm_url}" style="color:cyan">${confirm_url}</a>
+<a th:href="${confirm_url}" style="color:cyan" th:text="${confirm_url}"></a>
 </body>
 </html>
