@@ -18,8 +18,8 @@ apply plugin: 'war'
 group = 'com.idea.example'
 version = '0.0.1-SNAPSHOT'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
 	mavenCentral()
@@ -50,6 +50,17 @@ dependencies {
 	compile('com.netflix.feign:feign-gson:8.18.0')
 	//Gson
 	compile('com.google.code.gson:gson:2.8.2')
+	//Spring Security
+	compile('org.springframework.boot:spring-boot-starter-security:1.5.10.RELEASE')
+	//Spring Security存登录用户信息到Session
+	compile('org.springframework.session:spring-session:1.3.2.RELEASE')
+	//Email
+	compile("it.ozimov:spring-boot-email-core:0.6.3")
+	//发送 Html Email 必须导入一个 Template 模版
+	compile("it.ozimov:spring-boot-thymeleaf-email:0.6.3")
+	//compile("org.springframework.boot:spring-boot-starter-thymeleaf:1.5.10.RELEASE")
+	//使用spring.thymeleaf.mode=LEGACYHTML5需要依赖的包
+	compile("net.sourceforge.nekohtml:nekohtml:1.9.22")
 
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-validation')
@@ -67,11 +78,8 @@ dependencies {
 /*
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.data:spring-data-rest-hal-browser')
-	compile('org.springframework.session:spring-session-data-redis')
 	compile('org.springframework.session:spring-session-jdbc')
-	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.security:spring-security-test')
 }
 * */

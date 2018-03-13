@@ -3,12 +3,13 @@ package com.idea.example.domain.dto;
 import com.idea.example.enums.ActiveEnum;
 import lombok.Data;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Table(name="t_user")
 @Entity
-public class User {
+public class User implements Serializable {//Spring Security登录用的 User对象必须继承 Serializable
 
     @Id
     @GeneratedValue
@@ -17,8 +18,6 @@ public class User {
     private String email;
 
     private String pw;
-
-    private String otpHash;
 
     @Enumerated(EnumType.STRING)
     private ActiveEnum active;

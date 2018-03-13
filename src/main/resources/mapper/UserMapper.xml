@@ -6,7 +6,6 @@
         <result column="id" 		property="id" />
         <result column="email"      property="email" />
         <result column="pw" 	    property="pw" />
-        <result column="otp_hash"   property="otpHash" />
         <result column="active"     property="active" />
         <result column="role"       property="role" />
         <result column="reg_date"   property="regDate" />
@@ -15,7 +14,7 @@
     <parameterMap id="User" type="com.idea.example.domain.dto.User"/>
 
     <sql id="Base_Column_List">
-        id, email, pw, otp_hash, active, role, reg_date
+        id, email, pw, active, role, reg_date
     </sql>
 
     <sql id="table"> t_user </sql>
@@ -32,9 +31,9 @@
     <insert id="saveUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO
         <include refid="table" />
-        (email, pw, otp_hash, active, role, reg_date)
+        (email, pw, active, role, reg_date)
         VALUES
-        (#{email},#{pw},#{otpHash},#{active},#{role},#{regDate})
+        (#{email},#{pw},#{active},#{role},#{regDate})
     </insert>
 
     <parameterMap id="FingerPrint" type="com.idea.example.domain.dto.FingerPrint"/>

@@ -19,7 +19,6 @@ CREATE TABLE `t_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `pw` varchar(120) NOT NULL,
-  `otp_hash` varchar(120) NOT NULL,
   `active` varchar(1) NOT NULL,
   `role` varchar(10) DEFAULT NULL,
   `reg_date` datetime NOT NULL,

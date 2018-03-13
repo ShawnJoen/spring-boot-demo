@@ -34,3 +34,8 @@ Spring Boot Intellij Idea Gradle Demo Project
 # FeignClient
 &nbsp;&nbsp;通过FeignClient获取数据&nbsp;:&nbsp;/feign/github<br><br>
 &nbsp;&nbsp;通过FeignClient获取指定数据&nbsp;:&nbsp;/feign/github/jack
+# Spring Security
+&nbsp;&nbsp;用户登入&nbsp;:&nbsp;/user/login<br><br>
+&nbsp;&nbsp;用户注册&nbsp;:&nbsp;/user/register
+# Email Service
+&nbsp;&nbsp;发送邮件&nbsp;:&nbsp;/user/sendEmail?email=邮件地址
