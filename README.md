@@ -39,3 +39,5 @@ Spring Boot Intellij Idea Gradle Demo Project
 &nbsp;&nbsp;用户注册&nbsp;:&nbsp;/user/register
 # Email Service
 &nbsp;&nbsp;发送邮件&nbsp;:&nbsp;/user/sendEmail?email=邮件地址
+# Google Authenticator 
+&nbsp;&nbsp;二维码 以及 验证表单&nbsp;:&nbsp;/googleAuth

@@ -61,6 +61,8 @@ dependencies {
 	//compile("org.springframework.boot:spring-boot-starter-thymeleaf:1.5.10.RELEASE")
 	//使用spring.thymeleaf.mode=LEGACYHTML5需要依赖的包
 	compile("net.sourceforge.nekohtml:nekohtml:1.9.22")
+	//Google Auth验证
+	compile('com.warrenstrange:googleauth:1.1.5')
 
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.springframework.boot:spring-boot-starter-validation')

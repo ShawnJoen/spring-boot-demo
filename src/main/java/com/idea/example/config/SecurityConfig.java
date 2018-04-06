@@ -42,9 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //未加的默认需要登录才能访问
                 .antMatchers("/", "/static/**", "/hello", "/api/**", "/socket/**",
                         "/mq/rabbit/**", "/cache/crud/**", "/redisson/**", "/feign/**",
-                        "/user/login", "/user/register", "/user/doRegister")
+                        "/user/login", "/user/register", "/user/doRegister",
+                        "/googleAuth"
+                )
                 .permitAll()
-                .anyRequest().fullyAuthenticated()
+                .anyRequest()
+                .fullyAuthenticated()
                 .and()
                 .formLogin()
                 .loginPage("/user/login")

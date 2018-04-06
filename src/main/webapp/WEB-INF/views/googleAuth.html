@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml"><head><title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+	<script src="/static/js/jquery-1.12.4.min.js"></script>
+	<script src="/static/js/jquery.qrcode.min.js"></script>
+</head>
+<body>
+<!-- quanchunlin108@163.com -->
+<div>User Email: <span th:text="${userId}"></span></div>
+<!-- Secret: otpauth://totp/quanchunlin108@163.com?secret=J7XC3LZ7H2F7RM7F&issuer=SHNCode -->
+<div>Secret: <span th:text="${qrcodeURL}"></span></div><br/>
+
+<div id="code"></div><br/>
+
+<div>
+	secret Key:<input type="text" name="secretKey" id="secretKey" value="J7XC3LZ7H2F7RM7F"/>
+	Auth Code:<input type="text" name="authCode" id="authCode" value="0"/>
+	<button type="button" onclick="checkSecretCode()">check</button>
+</div>
+<script th:inline="javascript" type="text/javascript">
+function checkSecretCode() {
+	var secretKey = $("#secretKey").val();
+	var authCode = $("#authCode").val();
+	$.post("googleAuth", {secretKey: secretKey, authCode: authCode}, function(result) {
+		
+		alert(result.message);
+	},'json');
+}
+$(function() {
+    var qrcodeURL = [[${qrcodeURL}]];
+	$("#code").qrcode({
+	        render: "table",//table方式
+	        width: 200,
+	        height:200,
+	        background: "#ffffff",
+	        foreground: "black",
+	        text: qrcodeURL
+	});
+});
+</script>
+</body>
+</html>
