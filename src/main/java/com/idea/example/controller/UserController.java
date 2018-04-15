@@ -30,7 +30,7 @@ public class UserController {
     @RequestMapping("login")
     public String login(@RequestParam(name = "msg", defaultValue = "none") String msg) {
 
-        log.info("-------------login:", msg);
+        log.info("-------------login:{}", msg);
 
         return "user/login";
     }

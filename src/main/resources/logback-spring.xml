@@ -35,7 +35,7 @@
     <!--默认的logback.xml文件名加上-spring就可以支持spring扩展profile<springProfile name=(spring.profiles.active)>-->
     <springProfile name="local">
         <!--指定dao包打印sql语句-->
-        <logger name="com.idea.example.repository.dao" level="DEBUG"/>
+        <!--<logger name="com.idea.example.repository.dao" level="DEBUG"/>-->
         <logger name="org.springframework.web" level="INFO"/>
         <logger name="org.springboot.sample" level="INFO" />
         <root level="INFO">
