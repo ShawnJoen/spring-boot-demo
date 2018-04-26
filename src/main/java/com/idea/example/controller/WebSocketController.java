@@ -6,15 +6,12 @@ import com.idea.example.socket.login.SocketSessionRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.MessageHeaders;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.handler.annotation.*;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageType;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.security.Principal;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,12 +32,9 @@ public class WebSocketController {
     public AricResponse say(AricMessage message) {
 
         log.info("服务器接收到消息: {}", message);
-
         return new AricResponse("Ping: " + message.getName());
     }
 
-
-    /****************************简单即时聊天功能实现****************************/
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;//通过simpMessagingTemplate向浏览器发送消息(点对点式)
 
@@ -53,27 +47,28 @@ public class WebSocketController {
     }
 
     @MessageMapping("sendChatMessage")
-    public void sendChatMessage(AricMessage message) {
-
+    public void sendChatMessage(AricMessage message,
+                                MessageHeaders MessageHeaders,
+                                @Header("destination") String destination,
+                                @Headers Map<String, Object> headers,
+                                @Payload String body) {
+        //log.info("[test] MessageHeaders: {}", MessageHeaders);//[test] MessageHeaders: {simpMessageType=MESSAGE, stompCommand=SEND, nativeHeaders={destination=[/sendChatMessage], content-length=[12]}, simpSessionAttributes={}, simpHeartbeat=[J@3fd22a73, lookupDestination=/sendChatMessage, simpSessionId=foze2yis, simpDestination=/sendChatMessage}
+        //log.info("[test] Header: {}", destination);///sendChatMessage
+        //log.info("[test] Headers: {}", headers);//{simpMessageType=MESSAGE, stompCommand=SEND, nativeHeaders={destination=[/sendChatMessage], content-length=[12]}, simpSessionAttributes={}, simpHeartbeat=[J@3fd22a73, lookupDestination=/sendChatMessage, simpSessionId=foze2yis, simpDestination=/sendChatMessage}
+        //log.info("[test] Payload: {}", body) ;//Payload: {"name":"2"}
         log.info("服务器接收消息 Message: {}", message);
 
-        //指定用户编号给单个用户发消息
-//        String sessionId=webAgentSessionRegistry.getSessionIds(message.getId()).stream().findFirst().get();
-//        simpMessagingTemplate.convertAndSendToUser(sessionId,
-//                "/topic/greetings",new AricResponse("Send: " + message.getName()),
-//                createHeaders(sessionId));
         //给所有在线用户发消息
         List<String> keys = webAgentSessionRegistry.getAllSessionIds()
                 .entrySet()
-                .stream()
+                .parallelStream()
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
         keys.forEach( key -> {
             String sessionId = webAgentSessionRegistry.getSessionIds(key)
-                            .stream()
+                            .parallelStream()
                             .findFirst()
-                            .get()
-                            .toString();
+                            .get();
             simpMessagingTemplate.convertAndSendToUser(sessionId,
                     "/simpleChat/chatAll",
                     new AricResponse("Send: " + message.getName()),

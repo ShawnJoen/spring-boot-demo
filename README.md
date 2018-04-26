@@ -41,3 +41,7 @@ Spring Boot Intellij Idea Gradle Demo Project
 &nbsp;&nbsp;发送邮件&nbsp;:&nbsp;/user/sendEmail?email=邮件地址
 # Google Authenticator 
 &nbsp;&nbsp;二维码 以及 验证表单&nbsp;:&nbsp;/googleAuth
+# Cookie 增读删
+&nbsp;&nbsp;·&nbsp;&nbsp;/cookie/add<br><br>
+&nbsp;&nbsp;·&nbsp;&nbsp;/cookie/get<br><br>
+&nbsp;&nbsp;·&nbsp;&nbsp;/cookie/remove

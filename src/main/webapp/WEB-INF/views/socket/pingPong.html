@@ -18,7 +18,6 @@
 </body>
 <script type="text/javascript">
     var stompClient = null;
-
     function connect() {
         var socket = new SockJS('/endpointAric');//连接服务器使用SockJS协议定义的Endpoint
         stompClient = Stomp.over(socket);//使用STOMP子协议的WebSocket客户端
@@ -28,7 +27,6 @@
 
                 showResponse(JSON.parse(response.body).responseMessage);
             });
-
             setConnected(true);
             console.log('Connected:' + frame);
         });
@@ -43,7 +41,6 @@
         if(stompClient != null) {
             stompClient.disconnect();
         }
-
         setConnected(false);
         console.log("Disconnected");
     }

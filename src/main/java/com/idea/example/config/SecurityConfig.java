@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/static/**", "/hello", "/api/**", "/socket/**",
                         "/mq/rabbit/**", "/cache/crud/**", "/redisson/**", "/feign/**",
                         "/user/login", "/user/register", "/user/doRegister",
-                        "/googleAuth"
+                        "/googleAuth", "/cookie/**"
                 )
                 .permitAll()
                 .anyRequest()
